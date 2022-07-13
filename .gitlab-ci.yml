@@ -14,12 +14,6 @@ before_script:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
-
-test:
-  script: ["echo 'test' > file.txt"]
-  artifacts:
-    expose_as: 'artifact 1'
-    paths: ['file.txt']
     
 run:
   script:
