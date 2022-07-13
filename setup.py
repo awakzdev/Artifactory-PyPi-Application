@@ -2,8 +2,16 @@ from setuptools import setup, find_packages
 import os
 
 
-def _get_rc_file(self):
+class register(register_orig):
+
+    def _get_rc_file(self):
         return os.path.join('.', '.pypirc')
+
+class upload(upload_orig):
+
+    def _get_rc_file(self):
+        return os.path.join('.', '.pypirc')
+
 
 setup(
     name='ganesha_experimental',
@@ -11,4 +19,8 @@ setup(
     author='Elazar Chodjayev',
     author_email='zenmyx@gmail.com',
     packages=find_packages(),
+    cmdclass={
+        'register': register,
+        'upload': upload,
+    }
 )
