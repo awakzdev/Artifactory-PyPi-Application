@@ -1,5 +1,19 @@
 image: python:latest
 
+failing_test_job:
+  variables:
+    DEBUG: true
+  script: bin/mycommand
+  artifacts:
+    paths:
+      - bin/results
+
+successful_test_job:
+  script: DEBUG=true bin/mycommand
+  artifacts:
+    paths:
+      - bin/results
+
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -7,6 +21,8 @@ cache:
   paths:
     - .cache/pip
     - venv/
+
+
 
 before_script:
   - python --version  # For debugging
