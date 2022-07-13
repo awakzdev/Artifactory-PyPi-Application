@@ -1,4 +1,9 @@
 from setuptools import setup, find_packages
+import os
+
+
+def _get_rc_file(self):
+        return os.path.join('.', '.pypirc')
 
 setup(
     name='ganesha_experimental',
