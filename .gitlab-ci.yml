@@ -1,18 +1,5 @@
 image: python:latest
 
-stages_fail:
-  variables:
-    DEBUG: true
-  script: bin/mycommand
-  artifacts:
-    paths:
-      - bin/results
-
-stages_success:
-  script: DEBUG=true bin/mycommand
-  artifacts:
-    paths:
-      - bin/results
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -22,14 +9,18 @@ cache:
     - .cache/pip
     - venv/
 
-
-
 before_script:
   - python --version  # For debugging
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
 
+test:
+  script: ["echo 'test' > file.txt"]
+  artifacts:
+    expose_as: 'artifact 1'
+    paths: ['file.txt']
+    
 run:
   script:
     - python setup.py sdist bdist_wheel upload -r local
