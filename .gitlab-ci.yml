@@ -1,6 +1,6 @@
 image: python:latest
 
-stage_1:
+stages_fail:
   variables:
     DEBUG: true
   script: bin/mycommand
@@ -8,7 +8,7 @@ stage_1:
     paths:
       - bin/results
 
-stage_0:
+stages_success:
   script: DEBUG=true bin/mycommand
   artifacts:
     paths:
