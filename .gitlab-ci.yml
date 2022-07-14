@@ -14,8 +14,10 @@ before_script:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
+  - pip install twine
     
 run:
   script:
-    - python setup.py sdist bdist_wheel upload -r local
+    - python setup.py sdist bdist_wheel
+    - python3 -m twine upload --repository local dist/*
 
