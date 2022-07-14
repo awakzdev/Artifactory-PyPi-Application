@@ -19,5 +19,5 @@ before_script:
 run:
   script:
     - python setup.py sdist bdist_wheel
-    - python3 -m twine upload --repository local dist/*
+    - python3 -m twine upload --repository https://awakzdev.jfrog.io/artifactory/api/pypi/pypi dist/*
 
