@@ -1,6 +1,5 @@
 image: python:latest
 
-
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -14,10 +13,10 @@ before_script:
   - pip install virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - pip install twine
-    
+  
 run:
   script:
+    - pip install twine
     - python setup.py sdist bdist_wheel
     - python3 -m twine upload -r local dist/* --config-file $PYPIRC
 
