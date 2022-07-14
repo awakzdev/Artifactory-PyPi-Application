@@ -19,5 +19,6 @@ before_script:
 run:
   script:
     - python setup.py sdist bdist_wheel
+    - import os && os.listdir()
     - python3 -m twine upload --repository local dist/*
 
