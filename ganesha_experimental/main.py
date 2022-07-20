@@ -29,7 +29,7 @@ def Prime():
     """Will show all Prime numbers from a generated value (2, 100)"""
     n = random.randint(2, 100)
     Prime = str(printPrime(n))[1:-1]
-    print(Prime)
+    return Prime
 
 
 if __name__ == "__main__":
