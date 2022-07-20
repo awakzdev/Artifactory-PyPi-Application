@@ -23,9 +23,13 @@ def printPrime(n):
     return previous_primes_nb
 
 
-if __name__ == "__main__":
-    # randomized number
+def Prime():
     n = random.randint(2, 100)
-    # function calling
-    previous_primes_list = printPrime(n)
-    print(previous_primes_list)
+    Prime = str(printPrime(n))[1:-1]
+    print(Prime)
+
+
+
+if __name__ == "__main__":
+    Prime()
+
