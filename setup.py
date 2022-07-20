@@ -17,7 +17,7 @@ class upload(upload_orig):
 
 setup(
     name='ganesha_experimental',
-    version='1.0.0',
+    version='5.0.0',
     author='Elazar Chodjayev',
     author_email='zenmyx@gmail.com',
     packages=find_packages(),
