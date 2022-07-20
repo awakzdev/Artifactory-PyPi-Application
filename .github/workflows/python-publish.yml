@@ -1,0 +1,23 @@
+name: Python Package using Conda
+
+on: [push]
+
+jobs:
+  push-artifactory-pypi:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python venv
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        run: pip install virtualenv && virtualenv venv && source venv/bin/activate
+
+    - name: push to artifactory and pypi
+      run: |
+        echo "${{ secrets.PYPIRC }}" >> pip.conf
+        pip install twine wheel
+        python3 setup.py sdist bdist_wheel
+        python3 -m twine upload -r local dist/* --config-file pip.conf
+        python3 -m twine upload --skip-existing -r pypi dist/* --config-file pip.conf
