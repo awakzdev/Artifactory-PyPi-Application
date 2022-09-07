@@ -12,5 +12,5 @@ Application Purpose - Will create a random number between 2, 100 and calculate a
 ##### 2. Specify the url within the pip command using --find-links= command, use example as follows : 
 `pip install ganesha_experimental==5.0.0 --find-links=https://awakzdev.jfrog.io/artifactory/`
 
-#### Finally you'll be able to import it if everything went right
+#### Finally you'll be able to import it using
 `from ganesha_experimental.main import *`
